@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './App.css';
-import Car from './Car/Car'
+import Car from './Car/Car';
 
 function App() {
 
