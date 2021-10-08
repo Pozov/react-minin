@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useCallback, useState} from 'react'
 import './App.css';
 import Car from './Car/Car'
 
@@ -16,10 +16,22 @@ function App() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [pageTitle, setPageTitle] = useState(stasik.pageTitle);
 
-    const changeTitleHandler = () => {
-        setPageTitle(stasik.pageTitle + ' xyu')
-
-    }
+    const xyu  = useCallback(() => {
+            setPageTitle(stasik.pageTitle + 'xyu')
+        }
+    )
+    const car0  = useCallback(() => {
+        setPageTitle(stasik.cars[0].name)
+        }
+    )
+    const car1  = useCallback(() => {
+            setPageTitle(stasik.cars[1].name)
+        }
+    )
+    const car2  = useCallback(() => {
+            setPageTitle(stasik.cars[2].name)
+        }
+    )
 
     const divStyle = {
         textAlign: 'center'
@@ -30,17 +42,23 @@ function App() {
             <div style={divStyle}>
                 <h1>{pageTitle}</h1>
 
-                <button onClick={changeTitleHandler}>Change title</button>
+                <button onClick={xyu}>Change title</button>
 
                 <Car
                     name={cars[0].name}
-                     year={cars[0].year} />
+                    year={cars[0].year}
+                    onChangeTitle={car0}
+                />
                 <Car
                     name={cars[1].name}
-                    year={cars[1].year} />
+                    year={cars[1].year}
+                    onChangeTitle={car1}
+                />
                 <Car
                     name={cars[2].name}
-                    year={cars[2].year} />
+                    year={cars[2].year}
+                    onChangeTitle={car2}
+                />
             </div>
         );
 }
