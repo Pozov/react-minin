@@ -16,10 +16,10 @@ function App() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [pageTitle, setPageTitle] = useState(stasik.pageTitle);
 
-    const xyu  = useCallback(() => {
-            setPageTitle(stasik.pageTitle + 'xyu')
-        }
-    )
+    const handleInput = () => {
+        setPageTitle(document.getElementById("1dd").value)
+    }
+
     const car0  = useCallback(() => {
         setPageTitle(stasik.cars[0].name)
         }
@@ -42,7 +42,9 @@ function App() {
             <div style={divStyle}>
                 <h1>{pageTitle}</h1>
 
-                <button onClick={xyu}>Change title</button>
+                <input type="text" id="1dd"/>
+
+                <button onClick={handleInput}>Change title</button>
 
                 <Car
                     name={cars[0].name}
