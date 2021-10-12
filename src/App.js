@@ -1,10 +1,10 @@
-import React, {useCallback, useState} from 'react'
+import React, {Component, useCallback, useState} from 'react'
 import './App.css';
 import Car from './Car/Car'
 
-function App() {
+class App extends Component {
 
-    const stasik = {
+    state = {
         cars: [
             {name: 'Ford', year: 2018},
             {name: 'Audi', year: 2016},
@@ -13,57 +13,38 @@ function App() {
         pageTitle: 'React '
     }
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [pageTitle, setPageTitle] = useState(stasik.pageTitle);
-
-    const handleInput = () => {
-        setPageTitle(document.getElementById("1dd").value)
+    changeTitleHandler = (newTitle) => {
+        this.setState({
+            pageTitle: newTitle
+        })
     }
 
-    const car0  = useCallback(() => {
-        setPageTitle(stasik.cars[0].name)
+    render() {
+        const divStyle = {
+            textAlign: 'center'
         }
-    )
-    const car1  = useCallback(() => {
-            setPageTitle(stasik.cars[1].name)
-        }
-    )
-    const car2  = useCallback(() => {
-            setPageTitle(stasik.cars[2].name)
-        }
-    )
-
-    const divStyle = {
-        textAlign: 'center'
-    }
-
-    const cars = stasik.cars
         return (
             <div style={divStyle}>
-                <h1>{pageTitle}</h1>
+                <h1>{this.state.pageTitle}</h1>
 
-                <input type="text" id="1dd"/>
+                <input type="text" onChange={this.handleInput}/>
 
-                <button onClick={handleInput}>Change title</button>
+                <button onClick={this.changeTitleHandler.bind(this, 'Popa')}
+                >Change title</button>
 
-                <Car
-                    name={cars[0].name}
-                    year={cars[0].year}
-                    onChangeTitle={car0}
-                />
-                <Car
-                    name={cars[1].name}
-                    year={cars[1].year}
-                    onChangeTitle={car1}
-                />
-                <Car
-                    name={cars[2].name}
-                    year={cars[2].year}
-                    onChangeTitle={car2}
-                />
+                {this.state.cars.map((car,index) => {
+                    return(
+                        <Car
+                        key={index}
+                        name={car.name}
+                        year={car.year}
+                        onChangeTitle={() => this.changeTitleHandler(car.name)}
+                        />
+                    )
+                }) }
             </div>
         );
+    }
+
 }
-
-
 export default App;
