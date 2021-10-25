@@ -18,9 +18,6 @@ class App extends Component {
 
     }
 
-
-
-
     toggleCarsHandler = () => {
         this.setState({
             showCars: !this.state.showCars
@@ -38,6 +35,14 @@ class App extends Component {
         let cars = this.state.cars.concat()
         cars.splice(index, 1)
         this.setState({cars})
+    }
+
+    componentWillMount() {
+        console.log('App componentWillMount')
+    }
+
+    componentDidMount() {
+        console.log('App componentDidMount')
     }
 
     render() {
