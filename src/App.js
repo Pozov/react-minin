@@ -14,6 +14,8 @@ class App extends Component {
         showCars: false
     }
 
+
+
     toggleCarsHandler = () => {
         this.setState({
             showCars: !this.state.showCars
@@ -34,6 +36,8 @@ class App extends Component {
     }
 
     render() {
+
+
         const divStyle = {
             textAlign: 'center'
         }
@@ -54,7 +58,8 @@ class App extends Component {
         }
         return (
             <div style={divStyle}>
-                <h1>{this.state.pageTitle}</h1>
+                {/*<h1>{this.state.pageTitle}</h1>*/}
+                <h1>{this.props.title}</h1>
 
 
                 <button onClick={this.toggleCarsHandler}
