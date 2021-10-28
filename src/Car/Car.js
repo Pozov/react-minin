@@ -1,8 +1,28 @@
 import React from 'react'
 import Radium from 'radium'
-import './Car.css'
+import classes from './Car.css'
 
 class Car extends  React.Component {
+
+    componentWillReceiveProps(nextProps) {
+
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return true
+    }
+
+    componentWillUpdate(prevProps, prevState) {
+
+    }
+
+    componentDidUpdate() {
+
+    }
+
+    componentWillUnmount() {
+    }
+
     render() {
         const inputClasses = ['input']
 
