@@ -24,3 +24,8 @@
     border: 2px solid green;
     font-weight: bold;
 }
+.Car1{
+    width: 400px;
+    margin: auto;
+    padding-top: 20px
+}

@@ -1,7 +1,8 @@
-import React, {Component, useCallback, useState} from 'react'
+import React, {Component, useCallback, useState} from 'react';
 import './App.css';
-import Car from './Car/Car'
+import Car from './Car/Car';
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
+import Counter from "./Car/Counter/Counter";
 
 class App extends Component {
 
@@ -10,8 +11,8 @@ class App extends Component {
         this.state = {
             cars: [
                 {name: 'Ford', year: 2018},
-                {name: 'Audi', year: 2016},
-                {name: 'mazda', year: 2010}
+                // {name: 'Audi', year: 2016},
+                // {name: 'mazda', year: 2010}
             ],
             pageTitle: 'React ',
             showCars: false
@@ -73,15 +74,14 @@ class App extends Component {
                 {/*<h1>{this.state.pageTitle}</h1>*/}
                 <h1>{this.props.title}</h1>
 
-
-                <button onClick={this.toggleCarsHandler}
+                <Counter />
+                <hr/>
+                <button
+                  style={{marginTop: 20}}
+                  nClick={this.toggleCarsHandler}
                 >Toggle cars
                 </button>
-                <div style={{
-                    width: 400,
-                    margin: 'auto',
-                    paddingTop: '20px'
-                }}>
+                <div className="Car1">
                     {cars}
                 </div>
             </div>
