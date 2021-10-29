@@ -78,7 +78,7 @@ class App extends Component {
                 <hr/>
                 <button
                   style={{marginTop: 20}}
-                  nClick={this.toggleCarsHandler}
+                  onClick={this.toggleCarsHandler}
                 >Toggle cars
                 </button>
                 <div className="Car1">
