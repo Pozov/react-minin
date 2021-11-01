@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React from 'react';
 
 export default class ErrorBoundary extends React.Component {
 

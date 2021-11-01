@@ -1,4 +1,4 @@
-import React, {Component, useCallback, useState} from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import Car from './Car/Car';
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";

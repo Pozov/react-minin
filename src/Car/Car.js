@@ -1,30 +1,10 @@
 import React from 'react'
-import Radium from 'radium'
 import classes from './Car.css'
+import withClass from "../hoc/withClass";
 
 
 class Car extends  React.Component {
 
-    // componentWillReceiveProps(nextProps) {
-    //
-    // }
-    //
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return true
-    // }
-    //
-    // componentWillUpdate(nextProps, nextState) {
-    //
-    // }
-    //
-    //
-    //
-    // componentDidUpdate() {
-    //
-    // }
-    //
-    // componentWillUnmount() {
-    // }
 
     render() {
         const inputClasses = ['input']
@@ -41,18 +21,9 @@ class Car extends  React.Component {
             inputClasses.push('bold')
         }
 
-        const style = {
-            border: '1px solid #ccc',
-            boxShadow: '0 4px 5px rgba(0, 0, 0, .14)',
-            ':hover': {
-                border: '1px solid #aaa',
-                boxShadow: '0 4px 15px 0 rgba(0, 0, 0, .25)',
-                cursor: 'pointer'
-            }
-        }
 
         return (
-            <div className="Car" style={style}>
+            <React.Fragment>
                 <h3>Car name:{this.props.name}</h3>
                 <p>Year: <strong>{this.props.year}</strong></p>
                 <input
@@ -62,11 +33,11 @@ class Car extends  React.Component {
                     className={inputClasses.join(' ')}
                 />
                 <button onClick={this.props.onDelete}>Delete</button>
-            </div>
+            </React.Fragment>
         )
     }
     }
 
 
 
-export default Radium(Car)
+export default withClass(Car,classes.Car)
