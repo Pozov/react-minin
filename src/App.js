@@ -11,8 +11,8 @@ class App extends Component {
         this.state = {
             cars: [
                 {name: 'Ford', year: 2018},
-                // {name: 'Audi', year: 2016},
-                // {name: 'mazda', year: 2010}
+                {name: 'Audi', year: 2016},
+                {name: 'mazda', year: 2010}
             ],
             pageTitle: 'React ',
             showCars: false
@@ -39,14 +39,6 @@ class App extends Component {
         this.setState({cars})
     }
 
-    componentWillMount() {
-        console.log('App componentWillMount')
-    }
-
-    componentDidMount() {
-        console.log('App componentDidMount')
-    }
-
     render() {
 
 
@@ -62,6 +54,7 @@ class App extends Component {
                 <Car
                     name={car.name}
                     year={car.year}
+                    index={index}
                     onDelete={this.deleteHandler.bind(this, index)}
                     onChangeName={event => this.onChangeName(event.target.value, index)}
                 />
